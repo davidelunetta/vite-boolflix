@@ -1,17 +1,28 @@
 <template>
   <div>
-
+    Ciao
   </div>
 </template>
 
 <script>
+import axios from 'axios';
+import  store  from '../src/assets/data/store.js';
 export default {
-  setup () {
-    
+  name: 'App',
+  data() {
+    return{
+      store,
+    }
+  },
+  created() {
+    const url = store.apiUrl + this.store.endPoint
 
-    return {}
+    axios.get(url).then((res) => {
+      console.log(res.data.result)
+    })
   }
-}
+  }
+
 </script>
 
 <style lang="scss" scoped>
