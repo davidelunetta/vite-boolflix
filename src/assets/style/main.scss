@@ -4,6 +4,45 @@ $fa-font-path: '../webfonts';
 @import '@fortawesome/fontawesome-free/scss/regular.scss';
 @import '@fortawesome/fontawesome-free/scss/brands.scss';
 
+// GENERALS //
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    body{
+        margin: auto;
+        background-color: rgba(29, 45, 60, 1);
+    }
+    main{
+        width: 1270px;
+        margin: auto;
+        .film{
+            width: 100%;
+            margin: 40px;
+            min-height: 500px;
+            h2{
+                margin-bottom: 10px;
+                color: orange;
+            }
+        }
+        .serie{
+            width: 100%;
+            margin: 40px;
+            min-height: 500px;
+            h2{
+                margin-bottom: 10px;
+                color: orange;
+            }
+        }
+        .hide{
+            display: none;
+        }
+    }
+}
+
+
 // HEADER //
 
 header{
@@ -13,9 +52,9 @@ header{
     display: flex;
     flex-direction: row;
     .title-section{
-        // justify-content: start;
+        justify-content: start;
         h2{
-            // vertical-align: center;
+            vertical-align: center;
             margin: 25px 10px 5px 50px;
             font-size: 2.5rem;
             color: #ff0000;
