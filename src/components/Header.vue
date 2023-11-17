@@ -3,13 +3,14 @@
       <div class="title-section">
          <h2>Boolflix</h2>
       </div>
-      <div class="input-section">
+      <div class="input-section d-flex">
         <input type="text" 
+                class="form-control"
                placeholder="Search a movie" 
                v-model.trim="searchText" 
                @keyup.enter="$emit('search', searchText)"
         />
-        <button @click="$emit('search', searchText)">Search</button>
+        <button class="btn btn-danger" @click="$emit('search', searchText)">Search</button>
       </div> 
     </header>
   </template>

@@ -27,7 +27,7 @@
                   <li>
                       <img 
                           v-if="isFlag"
-                          :src="require(`../assets/${language}.png`)" 
+                          :src="(`../public/images/${language}.png`)"  
                           :alt="language"
                       />
                       <span v-else>{{ language }}</span>
@@ -41,7 +41,7 @@
                       </i>
                   </li>
                   <li class="over">
-                      <div>Overview: {{ overview }}</div> 
+                      <div class="overflow-scroll">Descrizione: {{ overview }}</div> 
                   </li>
             </ul>
             

@@ -22,10 +22,14 @@
 import axios from 'axios';
 import { store }  from '../src/assets/data/store.js';
 import Header from './components/Header.vue';
+import CardList from './components/CardList.vue';
+import Series from './components/Series.vue';
 export default {
   name: 'App',
   components: {
         Header,
+        CardList,
+        Series,
       },
   data() {
     return{
