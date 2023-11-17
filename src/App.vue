@@ -10,7 +10,7 @@
       </section>
       <section class="serie">
         <h2>Serie TV</h2>
-        <SeriesList  
+        <Series  
         :list2="seriesList"
       />
     </section>
@@ -40,7 +40,7 @@ export default {
   },
   methods: {
     performSearch(searchText) {
-      console.log(searchText);
+      // console.log(searchText);
 
       if (searchText !== '') {
          axios
@@ -66,24 +66,13 @@ export default {
              })
              .then(result => {
                this.seriesList = result.data.results;
+
              })
              .catch(err => console.log(err));
       }
     },
   }
 }
-
-
-
-  // created() {
-  //   const url = store.apiUrl + this.store.endPoint
-
-  //   axios.get(url).then((res) => {
-  //     console.log(res.data.result)
-  //   })
-  // }
-  // }
-
 </script>
 
 <style lang="scss" scoped>
