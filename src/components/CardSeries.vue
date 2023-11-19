@@ -29,12 +29,12 @@
           <span v-else>{{ language }}</span>
         </li>
         <li>
-          <i
+          <img
             v-for="index in Math.min(Math.round(vote / 2), 5)"
             :key="index"
-            class="fa-solid fa-star yellow"
-          ></i>
-          <span>{{ vote_average }}</span>
+            src="../assets/img/star4.png"
+            alt="star"
+          />
         </li>
         <li class="over">
           <div class="overflow-scroll">Descrizione: {{ overview }}</div>
