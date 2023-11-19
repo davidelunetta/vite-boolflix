@@ -5,7 +5,7 @@
       </div>
       <div class="input-section d-flex">
         <input type="text" 
-                class="form-control"
+                class="form-control outline-none"
                placeholder="Search a movie" 
                v-model.trim="searchText" 
                @keyup.enter="$emit('search', searchText)"
