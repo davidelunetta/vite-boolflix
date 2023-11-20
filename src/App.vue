@@ -1,80 +1,65 @@
 <template>
- <div class="app">
-    <Header @search="performSearch"/>
+  <div class="app">
+    <Header @search="performSearch" />
     <main>
       <section class="film">
         <h2>Film</h2>
-      <CardList  
-      :list1="movieList"
-      />
+        <CardList :list1="movieList" />
       </section>
       <section class="serie">
         <h2>Serie TV</h2>
-        <Series  
-        :list2="seriesList"
-      />
-    </section>
+        <Series :list2="seriesList" />
+      </section>
     </main>
   </div>
 </template>
 
 <script>
-import axios from 'axios';
-import { store }  from '../src/assets/data/store.js';
-import Header from './components/Header.vue';
-import CardList from './components/CardList.vue';
-import Series from './components/Series.vue';
+import axios from "axios";
+import { store } from "../src/assets/data/store.js";
+import Header from "./components/Header.vue";
+import CardList from "./components/CardList.vue";
+import Series from "./components/Series.vue";
+export const searchText = "your_search_text_here";
 export default {
-  name: 'App',
+  name: "App",
   components: {
-        Header,
-        CardList,
-        Series,
-      },
+    Header,
+    CardList,
+    Series,
+  },
   data() {
-    return{
+    return {
       store,
       movieList: [],
-      seriesList: []
-    }
+      seriesList: [],
+    };
   },
   methods: {
     performSearch(searchText) {
-      // console.log(searchText);
+      if (searchText !== "") {
+        store.params.query = searchText;
+        axios
+          .get(store.apiUrl + store.endpoint.movies, {
+            params: store.params,
+          })
+          .then((result) => {
+            this.movieList = result.data.results;
+          })
+          .catch((err) => console.log(err));
 
-      if (searchText !== '') {
-         axios
-             .get('https://api.themoviedb.org/3/search/movie?', {
-                  params: {
-                    api_key:'6f233f305ac6d79febf51ed8c1c54a44',
-                    query: searchText,
-                    language:'it-IT',
-                },
-             })
-             .then(result => {
-               this.movieList = result.data.results;
-             })
-             .catch(err => console.log(err));
-
-          axios
-             .get('https://api.themoviedb.org/3/search/tv?', {
-                  params: {
-                    api_key:'6f233f305ac6d79febf51ed8c1c54a44',
-                    query: searchText,
-                    language:'it-IT',
-                },
-             })
-             .then(result => {
-               this.seriesList = result.data.results;
-
-             })
-             .catch(err => console.log(err));
+        axios
+          .get(store.apiUrl + store.endpoint.series, {
+            params: store.params,
+          })
+          .then((result) => {
+            this.seriesList = result.data.results;
+          });
+        // .catch((err) => console.log(err));
       }
     },
-  }
-}
+  },
+};
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>

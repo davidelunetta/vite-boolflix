@@ -56,7 +56,7 @@ export default {
   },
   data() {
     return {
-      availableFlags: ["it", "en", "es", "ja"],
+      availableFlags: ["it", "en", "es", "ja", "fr"],
       hover: false,
     };
   },
