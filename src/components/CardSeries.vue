@@ -1,3 +1,5 @@
+<!-- CARD SERIE -->
+
 <template>
   <section class="box" @mouseover="hover = true" @mouseleave="hover = false">
     <div class="img-box">
@@ -37,7 +39,7 @@
           />
         </li>
         <li class="over">
-          <div class="overflow-scroll">Descrizione: {{ overview }}</div>
+          <div class="">Descrizione: {{ overview }}</div>
         </li>
       </ul>
     </div>

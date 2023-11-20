@@ -38,7 +38,7 @@
           />
         </li>
         <li class="over">
-          <div class="overflow-scroll">Descrizione: {{ overview }}</div>
+          <div class="">Descrizione: {{ overview }}</div>
         </li>
       </ul>
     </div>
